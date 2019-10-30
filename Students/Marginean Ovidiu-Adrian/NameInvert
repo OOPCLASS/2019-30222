@@ -1,0 +1,61 @@
+import java.util.regex.Pattern;
+
+public class NameInverter {
+
+	static String reversWords(String str) {
+
+		/*Am folosit Pattern pentru a separa cuvintele din string apoi 
+		  in functie de numaru de cuvinte am respectat cerintele si 
+		  am returnat sirul, se putea face mai "frumos" cu un case
+		*/
+		
+		Pattern pattern = Pattern.compile("\\s");
+		String[] temp = pattern.split(str);
+
+     //Nu merge		
+		if (str.equals(" "))
+			return str;
+
+		//Nu merge
+		if (str.equals(null))
+			return null;
+
+		if (temp.length == 1) {
+			return str;
+		}
+		if (temp.length == 2) {
+			return temp[1] + ',' + " " + temp[0];
+		}
+		if (temp.length == 3) {
+			return temp[2] + ',' + " " + temp[1] + " " + temp[0];
+		}
+		if (temp.length == 4) {
+			return temp[3] + ',' + " " + temp[2] + " " + temp[0] + " " + temp[1];
+		}
+
+		return str;
+
+	}
+
+	public static void main(String[] args) {
+		String name = "Mr.Phd. Adrian Marginean";
+		System.out.println(reversWords(name));
+
+		String name1 = "Mr.Adrian Marginean";
+		System.out.println(reversWords(name1));
+
+		String name2 = "Adrian Marginean";
+		System.out.println(reversWords(name2));
+
+		String name3 = "Marginean";
+		System.out.println(reversWords(name3));
+
+		String name4 = " ";
+		System.out.println(reversWords(name4));
+		
+		//System name5=null;
+		//System.out.println(reversWords(name5));
+		
+
+	}
+}
