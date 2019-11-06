@@ -71,7 +71,6 @@ public class CardIteratorTest {
 		}
 		assertEquals(cardArrayString, cardIteratorString);
 		
-
 	}
 
 }

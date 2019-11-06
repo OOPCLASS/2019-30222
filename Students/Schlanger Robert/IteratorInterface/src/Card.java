@@ -19,6 +19,20 @@ public class Card implements Comparable {
 		return rank;
 	}
 	
+	private int getRankNumber() {
+		if(rank.equalsIgnoreCase("A")) {
+			return 14;
+		} else if (rank.equalsIgnoreCase("K")) {
+			return 13;
+		} else if (rank.equalsIgnoreCase("Q")) {
+			return 12;
+		} else if (rank.equalsIgnoreCase("J")) {
+			return 11;
+		} else {
+			return Integer.parseInt(rank);
+		}
+	}
+	
 	public String getSuit() {
 		return suit;
 	}
@@ -26,7 +40,7 @@ public class Card implements Comparable {
 	@Override
 	public int compareTo(Comparable comparableObject) {
 		if(comparableObject instanceof Card) {
-			int result = rank.compareTo(((Card)comparableObject).getRank());
+			int result = rank.compareTo(((Card)comparableObject).getRankNumber()+"");
 			if(result == 0) {
 				return suit.compareTo(((Card)comparableObject).getSuit());
 			}

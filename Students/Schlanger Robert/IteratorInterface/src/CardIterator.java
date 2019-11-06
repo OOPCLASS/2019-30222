@@ -56,7 +56,8 @@ public class CardIterator implements OrderedIterator {
 		int cardArrayIndex = 0;
 		boolean itemInserted = false;
 		for (int newCardArrayIndex = 0; newCardArrayIndex < newCardArray.length; newCardArrayIndex++) {
-			if (((Card) comparableItem).compareTo(cardArray[cardArrayIndex]) < 0 && !itemInserted) {
+			if ((cardArrayIndex == cardArray.length || ((Card) comparableItem).compareTo(cardArray[cardArrayIndex]) < 0)
+					&& !itemInserted) {
 				newCardArray[newCardArrayIndex] = ((Card) comparableItem);
 				itemInserted = true;
 			} else {
